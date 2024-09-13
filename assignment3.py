@@ -21,7 +21,7 @@ def processData(file):
     data = csv.reader(io.StringIO(file))
 
     # Set regex patterns to find
-    filePattern = re.compile(r"\.(jpg|gif|png)$", re.IGNORECASE)
+    filePattern = re.compile(r"\.(jpg|jpeg|gif|png)$", re.IGNORECASE)
     browserPattern = re.compile(
         r"(Firefox|MSIE|Trident|Chrome|Safari)", re.IGNORECASE
     )
@@ -75,7 +75,7 @@ def processData(file):
     for hour in sortedHitsByHour:
         if hour[1]:
             print(f'Hour {hour[0]+1} has {hour[1]} hits')
-    print('The rest of have none')
+    print('All the rest have 0 hits')
 
 # THOUGHTS: I originally had separate functions for different processes eg to count the image
 # hits and find out the most popular browser. I think that this more modular set up is better
