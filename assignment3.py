@@ -48,7 +48,6 @@ def processData(file):
         browser = browserPattern.search(userAgentString).group()
         if browser == "Firefox":
             browser = "Firefox"
-            browserCount[browser] += 1
         elif browser == "MSIE" or browser == "Trident":
             browser = "Internet Explorer"
         elif browser == "Chrome":
@@ -72,6 +71,7 @@ def processData(file):
         f"The most popular browser is {mostPopular} with {max(browserCount.values())} hits"
     )
 
+    # Only print if the given hour has hits: personaly preference to keep console looking cleaner
     for hour in sortedHitsByHour:
         if hour[1]:
             print(f'Hour {hour[0]+1} has {hour[1]} hits')
