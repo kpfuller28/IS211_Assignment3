@@ -23,7 +23,7 @@ def processData(file):
     # Set regex patterns to find
     filePattern = re.compile(r"\.(jpg|gif|png)$", re.IGNORECASE)
     browserPattern = re.compile(
-        r"(Firefox|MSIE|Trident|Chrome|(?<!Chrome)Safari)", re.IGNORECASE
+        r"(Firefox|MSIE|Trident|Chrome|Safari)", re.IGNORECASE
     )
 
     # Define variables needed: image hits, total hits, browser count obj
@@ -71,12 +71,18 @@ def processData(file):
     print(
         f"The most popular browser is {mostPopular} with {max(browserCount.values())} hits"
     )
+
     for hour in sortedHitsByHour:
         if hour[1]:
             print(f'Hour {hour[0]+1} has {hour[1]} hits')
     print('The rest of have none')
 
-# THOUGHTS: I originally had separate function for different processes eg to count the image hits and find out the most popular browser. I think that this more modular set up is better in that it is more reusable, but it ends up looping through all the data for every single function. Putting all the functionality in one process data function is more efficient for the assignment, but is not as future proof or easily reusable.
+# THOUGHTS: I originally had separate functions for different processes eg to count the image
+# hits and find out the most popular browser. I think that this more modular set up is better
+# in that it is more reusable, but it ends up looping through all the data for every single function.
+# Putting all the functionality in one process data function is more efficient for the assignment,
+#  but is not as future proof or easily reusable.
+
 # def countImageHits(data):
 #     pattern = re.compile(r"\.(jpg|gif|png)$", re.IGNORECASE)
 #     imageHits = 0
